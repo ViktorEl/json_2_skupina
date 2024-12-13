@@ -24,11 +24,22 @@ def vytvor_slovnik(zoznam_slovnikov):
             novy_slovnik[dodavatel] = suma
     return novy_slovnik
 
+def najvacsi_dodavatel(slovnik):
+    najvacsi = ''
+    najvacsia_suma = 0
+    for dodavatel, suma in slovnik.items():
+        if suma > najvacsia_suma:
+            najvacsi = dodavatel
+            najvacsia_suma = suma
+    return f'{najvacsi} suma: {round(najvacsia_suma, 2)}'
+
 
 
 
 nacitany = nacitaj_json('zoznam_faktury.json')
 slovnik_dodavatelov = vytvor_slovnik(nacitany)
+print(najvacsi_dodavatel(slovnik_dodavatelov))
+
 
 
 
